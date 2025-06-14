@@ -30,6 +30,7 @@ A configurable and extensible ride-pricing engine inspired by Uber/Ola-style far
 ```bash
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
+<<<<<<< HEAD
 2. Set up virtual environment
 bash
 Copy
@@ -69,3 +70,5 @@ Edit
 {
   "total_fare": 178.75
 }
+=======
+>>>>>>> 035d02169f898b6d0475c928d9f2e53bcc3716ce
