@@ -23,52 +23,52 @@ A configurable and extensible ride-pricing engine inspired by Uber/Ola-style far
 
 ---
 
+
 ## 🛠️ Setup Instructions
 
 ### 1. Clone the repo
 
-```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
-<<<<<<< HEAD
+
+git clone https://github.com/kushAnkit/ride-pricing-module/
+
+cd ride-pricing-module
+
+
 2. Set up virtual environment
-bash
-Copy
-Edit
+ 
 python -m venv venv
+
 source venv/bin/activate  # For Windows: venv\Scripts\activate
+
 pip install -r requirements.txt
+
 3. Run migrations and start the server
-bash
-Copy
-Edit
-python manage.py makemigrations
-python manage.py migrate
-python manage.py createsuperuser  # For admin access
+   
+python manage.py makemigrations <br>
+python manage.py migrate <br>
+python manage.py createsuperuser  # For admin access <br>
 python manage.py runserver
+
+
 🧪 API Usage
 Endpoint: /api/pricing/calculate-fare/
+
 Method: GET
+
 Params:
 
-Param	Type	Description
-distance	float	Distance traveled (km)
-time	int	Duration of ride (minutes)
-wait	int	Waiting time (minutes)
+Param	      Type	     Description <br>
+distance	  float   	 Distance traveled (km) <br>
+time	      int	       Duration of ride (minutes) <br>
+wait	      int	       Waiting time (minutes) <br>
 
 Example:
 
-bash
-Copy
-Edit
 GET /api/pricing/calculate-fare/?distance=12.5&time=80&wait=7
+
 Response:
 
-json
-Copy
-Edit
 {
   "total_fare": 178.75
 }
-=======
->>>>>>> 035d02169f898b6d0475c928d9f2e53bcc3716ce
+
