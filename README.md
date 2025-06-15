@@ -1,6 +1,6 @@
 # 🚖 Django Ride Pricing Module
 
-A configurable and extensible ride-pricing engine inspired by Uber/Ola-style fare systems. Built with Django, this backend module allows dynamic fare computation based on distance, duration, waiting time, and configurable time multipliers.
+A flexible and extensible ride-pricing backend inspired by Uber/Ola-style fare systems. Built with Django, it dynamically computes fares based on distance, ride duration, waiting time, and configurable pricing rules.
 
 ![Django](https://img.shields.io/badge/Framework-Django-green)
 ![Status](https://img.shields.io/badge/Status-Completed-blue)
@@ -10,76 +10,114 @@ A configurable and extensible ride-pricing engine inspired by Uber/Ola-style far
 
 ## 📌 Features
 
-- 💼 Dynamic **Pricing Configuration Management** via Django Admin
-- 🧮 Fare calculation API using:
-  - Base price
-  - Distance slabs
-  - Time multipliers
+- 💼 Dynamic **Pricing Configuration Management** (via Admin panel)
+- 🧮 Fare calculation logic based on:
+  - Base price & distance slabs
+  - Time-based multipliers
   - Waiting charges
-- 🔧 Admin form for creating/editing configurations
-- 📜 Configuration change logs with timestamp and user tracking
-- 🔒 Only one active pricing config at a time
-- ✅ Supports edge-case handling with robust validations
+- 🛠️ Configuration via Django forms with validation
+- 🕒 **Change logs** for audit trail (timestamp & user)
+- 🔒 Ensures only one active pricing configuration at a time
+- ⚙️ Robust edge-case handling
 
 ---
 
-
 ## 🛠️ Setup Instructions
 
-### 1. Clone the repo
+### 1. Clone the Repository
 
-
-git clone https://github.com/kushAnkit/ride-pricing-module/
-
+```bash
+git clone https://github.com/kushAnkit/ride-pricing-module
 cd ride-pricing-module
+```
 
+### 2. Set Up Virtual Environment
 
-### 2. Set up virtual environment
- 
+```bash
 python -m venv venv
+# On Windows
+venv\Scripts\activate
+# On macOS/Linux
+source venv/bin/activate
+```
 
-source venv/bin/activate <br> 
-For Windows: venv\Scripts\activate
+### 3. Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
-### 3. Run migrations and start the server
-   
-  cd ride_pricing  # For main app
+### 4. Run Migrations & Start Server
 
-python manage.py makemigrations <br>
-python manage.py migrate <br>
-python manage.py createsuperuser  # For admin access <br>
+```bash
+cd ride_pricing
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser  # optional: for admin access
 python manage.py runserver
+```
 
+---
 
-🧪 API Usage <br>
- ## for price configuration admin panel/form and Change Log <br>
- Endpoint: /admin
+## 🔌 API Usage
 
- ## for calculation of fare <br>
-Endpoint: /api/pricing/calculate-fare/
+### 🎛️ Admin Panel & Configuration Forms
 
+- **URL:** `/admin`
+- Use Django admin to:
+  - Create/edit pricing configurations
+  - View change logs
+  - Manage time multipliers and wait charges
 
-Method: GET
+### 🚦 Fare Calculation Endpoint
 
-Params:
+- **URL:** `/api/pricing/calculate-fare/`  
+- **Method:** `GET`
 
-Param	      Type	     Description <br>
-distance	  float   	 Distance traveled (km) <br>
-time	      int	       Duration of ride (minutes) <br>
-wait	      int	       Waiting time (minutes) <br>
+#### Query Parameters:
 
-Example:
+| Param     | Type   | Description                          |
+|-----------|--------|--------------------------------------|
+| distance  | float  | Distance traveled (in km)            |
+| time      | int    | Duration of ride (in minutes)        |
+| wait      | int    | Waiting time (in minutes)            |
 
+#### Example:
+
+```
 GET /api/pricing/calculate-fare/?distance=12.5&time=80&wait=7
+```
 
-Response:
+#### Response:
 
+```json
 {
   "total_fare": 178.75
 }
+```
 
-## Screenshot
+---
+
+## 🧪 Running Tests
+
+```bash
+python manage.py test
+```
+
+---
+
+## 🖼️ Screenshot
 
 ![App Screenshot](ride_pricing/assets/screen1.png)
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, open an issue first to discuss what you'd like to change.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
