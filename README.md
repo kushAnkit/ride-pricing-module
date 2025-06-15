@@ -80,3 +80,6 @@ Response:
   "total_fare": 178.75
 }
 
+## Screenshot
+
+![App Screenshot](ride_pricing/assets/screen1.png)
