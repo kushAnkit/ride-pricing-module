@@ -34,24 +34,32 @@ git clone https://github.com/kushAnkit/ride-pricing-module/
 cd ride-pricing-module
 
 
-2. Set up virtual environment
+### 2. Set up virtual environment
  
 python -m venv venv
 
-source venv/bin/activate  # For Windows: venv\Scripts\activate
+source venv/bin/activate <br> 
+For Windows: venv\Scripts\activate
 
 pip install -r requirements.txt
 
-3. Run migrations and start the server
+### 3. Run migrations and start the server
    
+  cd ride_pricing  # For main app
+
 python manage.py makemigrations <br>
 python manage.py migrate <br>
 python manage.py createsuperuser  # For admin access <br>
 python manage.py runserver
 
 
-🧪 API Usage
+🧪 API Usage <br>
+ ## for price configuration admin panel/form and Change Log <br>
+ Endpoint: /admin
+
+ ## for calculation of fare <br>
 Endpoint: /api/pricing/calculate-fare/
+
 
 Method: GET
 
